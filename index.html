@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIODATA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            border: 2px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .profile {
+            display: flex;
+            margin-bottom: 40px;
+            justify-content: center;
+        }
+        .profile img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .profile img:hover {
+            transform: scale(1.1);
+        }
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .profile-info p {
+            margin: 5px 0;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        .details {
+            display: none;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            animation: zoomIn 0.5s;
+        }
+        .modal .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+        @keyframes zoomIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>BIODATA</h1>
+
+        <!-- Biodata Orang 1 -->
+        <div class="profile">
+            <img src="foto1.jpg" alt="Foto Orang 1" onclick="openModal('foto1.jpg')">
+            <div class="profile-info">
+                <h2>Kadek Edy Kurniawan</h2>
+                <p onclick="toggleContent(this)">NISN <span class="details">0086748349</span></p>
+                <p onclick="toggleContent(this)">USIA <span class="details">16 TAHUN</span></p>
+                <p onclick="toggleContent(this)">HOBI <span class="details">Dengar Musik dan Membaca </span></p>
+                <p onclick="toggleContent(this)">ORGANISASI <span class="details">Japanese Club dan Codecs 21</span></p>
+                <p onclick="toggleContent(this)">TANGGAL LAHIR <span class="details">1 Agustus 2008</span></p>
+                <p onclick="toggleContent(this)">KELAS DAN SEKOLAH <span class="details">XI.7, SMAN 21 Makassar</span></p>
+                <p onclick="toggleContent(this)">ALAMAT <span class="details">BTP Blok AA No. 125</span></p>
+                <p onclick="toggleContent(this)">KONTAK <span class="details">+62 819-1649-5791</span></p>
+                <p onclick="toggleContent(this)">MEDIA SOSIAL <span class="details"><a href="https://www.instagram.com/kdkdyy_/profilecard/?igsh=MXFubmJpN2RlZ2pseQ==" target="_blank">instagram</a></span></p>
+                <p onclick="toggleContent(this)">MOTTO <span class="details">"If you can't shine today, you can still rise tomorrow"</span></p>
+            </div>
+        </div>
+
+        <!-- Biodata Orang 2 -->
+        <div class="profile">
+            <img src="foto2.jpg" alt="Foto Orang 2" onclick="openModal('foto2.jpg')">
+            <div class="profile-info">
+                <h2>Muh.syahrul safriadi</h2>
+                <p onclick="toggleContent(this)">NISN <span class="details">0072039398</span></p>
+                <p onclick="toggleContent(this)">USIA <span class="details">17 TAHUN</span></p>
+                <p onclick="toggleContent(this)">HOBI <span class="details">Mancing</span></p>
+                <p onclick="toggleContent(this)">ORGANISASI <span class="details">-</span></p>
+                <p onclick="toggleContent(this)">TANGGAL LAHIR <span class="details">23 NOVEMBER 2007</span></p>
+                <p onclick="toggleContent(this)">KELAS DAN SEKOLAH <span class="details">XI.7, SMAN 21 MAKASSAR</span></p>
+                <p onclick="toggleContent(this)">ALAMAT <span class="details">Jl.kerung-kerung Lr.47B No.12</span></p>
+                <p onclick="toggleContent(this)">KONTAK <span class="details">+62 838-6257-0257</span></p>
+                <p onclick="toggleContent(this)">MEDIA SOSIAL <span class="details"><a href="https://www.instagram.com/rullll.s/profilecard/?igsh=MTBjcXJxMW1qdnloYw==" target="_blank">Instagram</a></span></p>
+                <p onclick="toggleContent(this)">MOTTO <span class="details">"Mana Tau"</span></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <img id="modalImage" src="" alt="Foto Besar">
+    </div>
+
+    <script>
+        function openModal(imageSrc) {
+            document.getElementById('modalImage').src = imageSrc;
+            document.getElementById('myModal').style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = "none";
+        }
+
+        function toggleContent(element) {
+            const details = element.querySelector('.details');
+            if (details.style.display === "none" || details.style.display === "") {
+                const text = details.innerHTML;
+                element.innerHTML = text;
+                element.dataset.originalText = element.textContent;
+            } else {
+                element.innerHTML = element.dataset.originalText;
+                const detailsClone = document.createElement("span");
+                detailsClone.classList.add("details");
+                detailsClone.style.display = "none";
+                detailsClone.innerHTML = details.textContent;
+                element.appendChild(detailsClone);
+            }
+        }
+    </script>
+</body>
+</html>
